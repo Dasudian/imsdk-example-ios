@@ -80,13 +80,13 @@ step6. 上传
 介绍下include，所有的接口都在这个文件夹中。
 
 ## 配置工程
-1. 导入SDK 
+1.导入SDK 
  
    将下载好的SDK文件夹拖入到项目中，并勾选上Destination 
    
    ![Alt ten](doc/8.jpg)
     
-2. 设置工程属性
+2.设置工程属性
  
   向Build Phases → Link Binary With Libraries 中添加依赖库 
 
