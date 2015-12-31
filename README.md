@@ -10,33 +10,33 @@
 
 step1. 打开苹果开发者网站
 
-![Alt one](doc/1.png)
+![Alt one](doc/1.jpg)
 
 step2. 从Member Center进入Certificates, Identifiers & Profiles
 
-![Alt two](doc/2.png)
+![Alt two](doc/2.jpg)
 
 step3. 选择要制作的推送证书
 
-![Alt three](doc/3.png)
+![Alt three](doc/3.jpg)
 
 * 对于开发环境(sandbox)的推送证书, 请选择 Apple Push Notification service SSL (Sandbox) 
 * 对于生产环境(production)的推送证书, 请选择 Apple Push Notification service SSL (Production)
 
 step4. 选择对应的APP ID 
- ![Alt four](doc/4.png)
+ ![Alt four](doc/4.jpg)
 
 step5. 根据Certificate Assistant的提示, 创建Certificate Request 
 
-![Alt five](doc/5.png)
+![Alt five](doc/5.jpg)
 
 step6. 上传上一步中创建的Certificate Request文件
 
-![Alt six](doc/6.png)
+![Alt six](doc/6.jpg)
 
 step7. 上传完毕后, 推送证书就被正确生成了, 之后我们下载下来这个证书, 并双击导入系统
  
- ![Alt seven](doc/7.png)  
+ ![Alt seven](doc/7.jpg)  
 
 ## 上传推送证书
 
@@ -84,13 +84,13 @@ step6. 上传
  
    将下载好的SDK文件夹拖入到项目中，并勾选上Destination 
    
-   ![Alt ten](doc/10.png)
+   ![Alt ten](doc/8.jpg)
     
 2. 设置工程属性
  
   向Build Phases → Link Binary With Libraries 中添加依赖库 
 
-   ![Alt event](doc/11.png)
+   ![Alt event](doc/9.jpg)
    
 SDK依赖库有 lib.tbd.
 
