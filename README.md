@@ -10,33 +10,33 @@ The demo program for using Dasudian IM iOS SDK
 
 step1. 打开苹果开发者网站
 
-![Alt one](doc/1.gif)
+![Alt one](doc/1.png)
 
 step2. 从Member Center进入Certificates, Identifiers & Profiles
 
-![Alt two](doc/2.gif)
+![Alt two](doc/2.png
 
 step3. 选择要制作的推送证书
 
-![Alt three](doc/3.gif)
+![Alt three](doc/3.png)
 
 * 对于开发环境(sandbox)的推送证书, 请选择 Apple Push Notification service SSL (Sandbox) 
 * 对于生产环境(production)的推送证书, 请选择 Apple Push Notification service SSL (Production)
 
 step4. 选择对应的APP ID 
- ![Alt four](doc/4.gif)
+ ![Alt four](doc/4.png)
 
 step5. 根据Certificate Assistant的提示, 创建Certificate Request 
 
-![Alt five](doc/5.gif)
+![Alt five](doc/5.png)
 
 step6. 上传上一步中创建的Certificate Request文件
 
-![Alt six](doc/6.gif)
+![Alt six](doc/6.png)
 
 step7. 上传完毕后, 推送证书就被正确生成了, 之后我们下载下来这个证书, 并双击导入系统
  
- ![Alt seven](doc/7.gif)  
+ ![Alt seven](doc/7.png)  
 
 ## 上传推送证书
 
@@ -84,21 +84,21 @@ step6. 上传
  
    将下载好的SDK文件夹拖入到项目中，并勾选上Destination 
    
-   ![Alt ten](doc/10.gif)
+   ![Alt ten](doc/10.png)
     
 2. 设置工程属性
  
   向Build Phases → Link Binary With Libraries 中添加依赖库 
 
-   ![Alt event](doc/11.gif)
+   ![Alt event](doc/11.png)
    
 SDK依赖库有 lib.tbd.
 
 # 集成SDK基础功能
-### SDK中的回调目前都是用代理实现的方法，方法简单易懂，方便用户实现各种回调的操。
-<br/>   
-### SDK中基本客户端类提供了基本的单播，组播，广播等一系列方法，同时客户端类也定义了一系列的协议用于回调，比如收到单播消息的回调，收到广播消息的回调。客户端类功能简单易懂且功能全面。
-<br/>     
+ SDK中的回调目前都是用代理实现的方法，方法简单易懂，方便用户实现各种回调的操作。
+  
+ SDK中基本客户端类提供了基本的单播，组播，广播等一系列方法，同时客户端类也定义了一系列的协议用于回调，比如收到单播消息的回调，收到广播消息的回调。客户端类功能简单易懂且功能全面。
+    
 # 初始化SDK 
 
 ```
@@ -160,8 +160,9 @@ SDK依赖库有 lib.tbd.
 
 * 与初始化方法配合使用,该函数用于清除sdk分配得内存
 
-## 用户在登录成功后可以进行一下一些常见的操作,比如：             
-### 必须要指出的是不论是发消息还是接受消息，其中mes格式为：{“t”:"*" , "b":"string"}这个这个字段中的t指的是消息类型（必填项），b指的是消息体我们发出的消息内容。
+ 用户在登录成功后可以进行一下一些常见的操作,比如： 
+
+ 必须要指出的是不论是发消息还是接受消息，其中msg格式为：{“t”:"*" , "b":"string"}这个这个字段中的t指的是消息类型（必填项），b指的是消息体我们发出的消息内容。
 ## 异步单播发送消息：
 在代码中导入客户端基本类 调用异步发送单播消息方法就OK了。
 
@@ -301,11 +302,7 @@ SDK依赖库有 lib.tbd.
      });
   
   
-    }
-
-                
-                          
-                          
+    }                         
 
  ```
 
