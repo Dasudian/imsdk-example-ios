@@ -1,8 +1,8 @@
-# imsdk-example-ios
-The demo program for using Dasudian IM iOS SDK
-# 集成IOS SDK前的准备工作
-## 注册开发者账号并且创建后台应用
-详细操作步骤见开发者注册及管理后台
+## 集成前准备
+到[大数点开发者平台](https://dev.dasudian.com/)注册成为大数点合作伙伴并创建应用
+
+## 下载SDK
+到[大数点官网](http://doc.dasudian.com/api/sdk)下载IM SDK.
 
 ## 制作并上传推送证书
 
@@ -802,32 +802,3 @@ SDK依赖库有 lib.tbd.
 
 
 ```
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                       
-                                                                            
-                                                                              
-
-
-
-
-
-
-
-
-
-
-
