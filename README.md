@@ -14,7 +14,7 @@ step1. 打开苹果开发者网站
 
 step2. 从Member Center进入Certificates, Identifiers & Profiles
 
-![Alt two](doc/2.png
+![Alt two](doc/2.png)
 
 step3. 选择要制作的推送证书
 
