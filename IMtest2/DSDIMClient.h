@@ -149,9 +149,11 @@
  *
  *  @param ocversion app的版本号
  *  @param ocappid   注册的appid
- *  @param ocspec    app的描叙信息
+ *  @param ocspec    app在大数点上注册生成的appkey。
  *  @param ocuserid  userid
+ *  @param ocuserinfo 用户需要的统计信息格式json字符串。
  *  @param ocdebicetoken 设备的device token
+ *  @param ocserveraddress  用户填写的服务器地址(如果写nil，默认为大数点公有云服务器地址);
  *  @return 成功返回当前的一个实例
  */
 - (id)initWith:(NSString *)ocversion
@@ -159,7 +161,8 @@
        appSpec:(NSString *)ocspec
         userId:(NSString *)ocuserid
       userinfo:(NSString *)ocuserinfo
-   devicetoken:(NSString *)ocdevicetoken;
+   devicetoken:(NSString *)ocdevicetoken
+ serverAddress:(NSString *)ocserveraddress;
 
 
 
@@ -341,7 +344,7 @@
 
 
 /**
- *  与初始化方法配合使用,该函数用于清除sdk分配得内存
+ *  退出登录，退出后将收不到远程推送的消息。
  */
 - (void)dsdDisConnect;
 

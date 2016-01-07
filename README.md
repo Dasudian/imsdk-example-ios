@@ -107,10 +107,16 @@ SDK依赖库有 lib.tbd.
                                                   appSpec:appspec
                                                    userId:username
                                                  userinfo:userinfo          
-                                              devicetoken:@"kmdesifaliowxcm"];
+                                              devicetoken:@"kmdesifaliowxcm"
+                                            serverAddress:serveraddress];
 
-```                                                                           
-* devicetoken是必须要带上的,如果不带上就初始化就会失败。 
+                                                                          
+*  devicetoken是必须要带上的,如果不带上就初始化就会失败。 
+*  serveraddress是用来指定服务器地址，如果为nil则默认为大数点公有云服务器地址。
+*  userinfo是用户用来定制统计服务的，格式与消息的格式一样必须是有效的json字符串。
+*  appspec是用户在大数点注册app成功后获得的appkey。
+
+```
 
 ## 登录                                                                            
 初始化SDK的时候提供了回调方法，可以在此回调方法来选择做相应的跳转或用户提示  
@@ -141,24 +147,24 @@ SDK依赖库有 lib.tbd.
 当主动退出登录的时候调用方法 ：- (void)dsdDisConnect;
 
  ```
- - (IBAction)quitacton:(UIButton *)sender {
+  - (IBAction)quitacton:(UIButton *)sender {
   
   
-  [[DSDIMClient shareInstance] dsdDisConnect];
+   [[DSDIMClient shareInstance] dsdDisConnect];
   
-  [GroupManager shareInstance].mycreatgroups = nil;
+   [GroupManager shareInstance].mycreatgroups = nil;
+   
+   [GroupManager shareInstance].myjiongroups = nil;
   
-  [GroupManager shareInstance].myjiongroups = nil;
-  
-  [self dismissViewControllerAnimated:YES completion:nil];
+   [self dismissViewControllerAnimated:YES completion:nil];
   
 
-}
+  }
 
  
  ```
 
-* 与初始化方法配合使用,该函数用于清除sdk分配得内存
+* 用户使用此方法退出登录后将收不到离线推送的消息。
 
  用户在登录成功后可以进行一下一些常见的操作,比如： 
 
@@ -173,6 +179,7 @@ SDK依赖库有 lib.tbd.
 
      // 组装发送的消息
        NSString *messagetext = textField.text;
+    //"0"表示消息类型为文本，“1”表示消息类型为语音，"2"表示消息类型为视频。
   
     NSDictionary *messagedic = @{@"t":@"0",@"b":messagetext};
   

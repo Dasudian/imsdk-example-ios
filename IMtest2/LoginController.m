@@ -42,18 +42,26 @@
   NSString *version = @"1.0";
   NSString *appid = @"139_A_92QZPza2Rn37mfzrU0";
   NSString *appspec = @"de1d880437ccc17a";
-  NSString *userinfo = nil;
-  NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"deviceToken"];
+    
+    NSString *userstring = @"fdsfsfsf";
+    
+    NSDictionary *dic = @{@"t":@"0",@"b":userstring};
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSMutableString *userinfo = [[NSMutableString alloc]initWithData:jsonData encoding: NSUTF8StringEncoding];
+   NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"deviceToken"];
   NSLog(@"发送给后台的token是:%@",devicetoken);
   
+    NSString *serveraddress  = nil;
+    
+   DSDIMClient *dsdclient = [[DSDIMClient shareInstance]initWith:version
+                                                            appID:appid
+                                                          appSpec:appspec
+                                                           userId:userid
+                                                         userinfo:userinfo
+                                                      devicetoken:devicetoken
+                                                    serverAddress:serveraddress];
   
-
-  DSDIMClient *dsdclient = [[DSDIMClient shareInstance] initWith:version
-                                                          appID:appid
-                                                        appSpec:appspec
-                                                         userId:userid
-                                                       userinfo:userinfo
-                                                     devicetoken:devicetoken];
   
    if(dsdclient!=nil){
   
