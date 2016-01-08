@@ -27,14 +27,7 @@
   GroupManager *groupmanager = [[GroupManager alloc]init];
   
   
-  //  推送的初始化的相关操作在此处进行,比如注册推送类型。
-  
-//  UIUserNotificationSettings *s = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
-//
-//  [[UIApplication sharedApplication] registerUserNotificationSettings:s];
-//
-//  [application registerForRemoteNotifications];
-  
+    
   
   
   if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
