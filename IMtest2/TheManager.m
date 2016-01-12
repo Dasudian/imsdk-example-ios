@@ -66,6 +66,7 @@ static TheManager* _instance = nil;
 
 
 - (void)didReciveMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+    
   
   if(_signlmessagary==nil){
   
@@ -95,7 +96,8 @@ static TheManager* _instance = nil;
     _groupmessageary = [[NSMutableArray alloc]init];
   }
 
-
+    
+    
   if(data!=nil){
   
   NSDictionary *dic = [[DSDIMClient shareInstance]dictionaryWithJsonString:data];
