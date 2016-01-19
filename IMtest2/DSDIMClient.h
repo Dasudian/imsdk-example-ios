@@ -130,6 +130,18 @@
 
 - (void)didDisConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
+/**
+ *  账号在其他设备登录的回调
+ *
+ *  @param reason  成功 ，reason=8
+ *  @param data    成功 ，data为unll
+ *  @param len     返回的data的数据长度
+ */
+
+@optional
+
+- (void)didloginOnanotherclient:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
 
 
 @end

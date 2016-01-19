@@ -38,21 +38,30 @@
 - (IBAction)loginaction:(UIButton *)sender {
   
   NSString *userid = _usernametext.text;
-  NSString *password = _passwordtext.text;
-  NSString *version = @"1.0";
-  NSString *appid = @"139_A_92QZPza2Rn37mfzrU0";
-  NSString *appspec = @"de1d880437ccc17a";
     
-    NSString *userstring = @"fdsfsfsf";
     
-    NSDictionary *dic = @{@"t":@"0",@"b":userstring};
+    [[NSUserDefaults standardUserDefaults] setObject:userid forKey:@"userid"];
+
+    NSMutableDictionary *mutabdic = [[NSUserDefaults standardUserDefaults] objectForKey:@"dic"];
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
-    NSMutableString *userinfo = [[NSMutableString alloc]initWithData:jsonData encoding: NSUTF8StringEncoding];
-   NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"deviceToken"];
-  NSLog(@"发送给后台的token是:%@",devicetoken);
-  
-    NSString *serveraddress  = nil;
+    NSLog(@"取出的字典是:%@",mutabdic);
+    
+    NSString *version = [mutabdic objectForKey:@"version"];
+    NSString *appid = [mutabdic objectForKey:@"appid"];
+    NSString *appspec = [mutabdic objectForKey:@"appspec"];
+    NSString *userinfo = [mutabdic objectForKey:@"userinfo"];
+   
+    NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"devicetoken"];
+    
+    NSString *serveraddress = nil;
+    NSLog(@"从字典中取出来的是:%@",appid);
+    NSLog(@"从字典中取出来的是:%@",devicetoken);
+    
+    if(devicetoken==nil){
+     
+        devicetoken = [NSString ret16bitString];
+        [[NSUserDefaults standardUserDefaults]setObject:devicetoken forKey:@"devicetoken"];
+    }
     
    DSDIMClient *dsdclient = [[DSDIMClient shareInstance]initWith:version
                                                             appID:appid

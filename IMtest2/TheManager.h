@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "DSDIMClient.h"
+#import <UIKit/UIKit.h>
 
-@interface TheManager : NSObject<DSDClintdelegate>
+@interface TheManager : NSObject<DSDClintdelegate,UIAlertViewDelegate>
 {
 
   NSInteger _i;

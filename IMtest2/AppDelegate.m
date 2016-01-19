@@ -11,6 +11,7 @@
 #import "TheManager.h"
 #import "GroupManager.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -26,7 +27,34 @@
   
   GroupManager *groupmanager = [[GroupManager alloc]init];
   
-  
+//  填写相应的app信息
+    
+    
+    NSString *version = @"1.0";
+    
+    NSString *appid = @"1635_A_93fHW6VMmE0wzjUSzA";
+    
+    NSString *appspec = @"80ee2b2f2687b501";
+    
+    NSString *userstring = @"fdsfsfsf";
+    
+    NSDictionary *dic = @{@"t":@"0",@"b":userstring};
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSMutableString *userinfo = [[NSMutableString alloc]initWithData:jsonData encoding: NSUTF8StringEncoding];
+    
+    
+    
+    NSUserDefaults *u = [NSUserDefaults standardUserDefaults];
+
+    NSMutableDictionary *dictionary = @{@"version":version,
+                                        @"appid":appid,
+                                        @"appspec":appspec,
+                                        @"userinfo":userinfo
+                                        };
+    
+    [u setObject:dictionary forKey:@"dic"];
     
   
   
@@ -102,13 +130,9 @@
       NSLog(@"拼接后的token是：%@",string1);
   
        NSUserDefaults *u = [NSUserDefaults standardUserDefaults];
-  
-      [u setObject:string1 forKey:@"deviceToken"];
-  
-  
-  
-  
-  
+    
+      [u setObject:string1 forKey:@"devicetoken"];
+    
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "TheManager.h"
+#import "LoginController.h"
 
 
 static TheManager* _instance = nil;
@@ -191,6 +192,70 @@ static TheManager* _instance = nil;
   
 }
 
+- (void)didloginOnanotherclient:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+
+    NSLog(@"你的账号已经在其它设备上登录了");
+    
+//    回到主线程更新UI
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alertview = [[UIAlertView alloc]initWithTitle:@"警告"
+                                                           message:@"你的账号已经在其他设备上登录"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"确定"
+                                                 otherButtonTitles:@"重新登录", nil];
+        
+        [alertview show];
+        
+    });
+    
+
+    
+    
+    
+}
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    NSLog(@"第%ld个按钮被单击了",buttonIndex);
+    
+    if(buttonIndex==0){
+    
+        NSLog(@"不用做什么事");
+        
+    }else if(buttonIndex ==1){
+        
+        NSMutableDictionary *mutabdic = [[NSUserDefaults standardUserDefaults] objectForKey:@"dic"];
+        
+        NSLog(@"取出的字典是:%@",mutabdic);
+        
+        NSString *version = [mutabdic objectForKey:@"version"];
+        NSString *appid = [mutabdic objectForKey:@"appid"];
+        NSString *appspec = [mutabdic objectForKey:@"appspec"];
+        NSString *userinfo = [mutabdic objectForKey:@"userinfo"];
+        
+        NSString *serveraddress = nil;
+        
+        NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"devicetoken"];
+        
+        NSString *userid = [[NSUserDefaults standardUserDefaults]objectForKey:@"userid"];
+  
+        
+        [[DSDIMClient shareInstance]initWith:version
+                                      appID:appid
+                                    appSpec:appspec
+                                     userId:userid
+                                   userinfo:userinfo
+                                devicetoken:devicetoken
+                               serverAddress:serveraddress];
+        
+        
+        
+        NSLog(@"重新登录");
+    }
+
+}
 
 
 @end
