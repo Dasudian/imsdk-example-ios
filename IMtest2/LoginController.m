@@ -53,7 +53,7 @@
    
     NSString *devicetoken = [[NSUserDefaults standardUserDefaults]objectForKey:@"devicetoken"];
     
-    NSString *serveraddress = nil;
+    NSString *serveraddress = @"https://192.168.1.185:8443/auc_app";
     NSLog(@"从字典中取出来的是:%@",appid);
     NSLog(@"从字典中取出来的是:%@",devicetoken);
     

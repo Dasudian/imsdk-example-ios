@@ -48,7 +48,7 @@
 		04335A131C2D66E400E4FB02 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 04335A121C2D66E400E4FB02 /* other.png */; };
 		04335A151C2D66EF00E4FB02 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04335A141C2D66EF00E4FB02 /* messages.plist */; };
 		04335A1D1C2E34D800E4FB02 /* GroupMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04335A1C1C2E34D800E4FB02 /* GroupMessageController.m */; };
-		DDB7E19E1C4DD27900EFA60C /* libdsd_im.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB7E19D1C4DD27900EFA60C /* libdsd_im.a */; };
+		0473B3571C58FE050088F619 /* libdsd_im.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0473B3561C58FE050088F619 /* libdsd_im.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +141,8 @@
 		04335A141C2D66EF00E4FB02 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		04335A1B1C2E34D800E4FB02 /* GroupMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMessageController.h; sourceTree = "<group>"; };
 		04335A1C1C2E34D800E4FB02 /* GroupMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMessageController.m; sourceTree = "<group>"; };
+		0473B3561C58FE050088F619 /* libdsd_im.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsd_im.a; sourceTree = "<group>"; };
 		DD86F2E31C44FD06008054AC /* pchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
-		DDB7E19D1C4DD27900EFA60C /* libdsd_im.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsd_im.a; sourceTree = "<group>"; };
 		DDD670051C3E6D6000403C82 /* DSDIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDIMClient.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043359EC1C2D16CE00E4FB02 /* libz.tbd in Frameworks */,
-				DDB7E19E1C4DD27900EFA60C /* libdsd_im.a in Frameworks */,
+				0473B3571C58FE050088F619 /* libdsd_im.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +397,7 @@
 				043359BE1C2D114E00E4FB02 /* TheManager.m */,
 				043359BA1C2D113100E4FB02 /* GroupManager.h */,
 				043359BB1C2D113900E4FB02 /* GroupManager.m */,
-				DDB7E19D1C4DD27900EFA60C /* libdsd_im.a */,
+				0473B3561C58FE050088F619 /* libdsd_im.a */,
 				DDD670051C3E6D6000403C82 /* DSDIMClient.h */,
 			);
 			name = DSDClient;
@@ -698,7 +698,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "a89303ce-bc2f-4d97-9739-d65680b491f5";
+				PROVISIONING_PROFILE = "c8aaf68c-1359-4e59-9e14-df851af40dc4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -737,7 +737,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "a89303ce-bc2f-4d97-9739-d65680b491f5";
+				PROVISIONING_PROFILE = "c8aaf68c-1359-4e59-9e14-df851af40dc4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -749,8 +749,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Feng (N5K9GEXD6S)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Feng (N5K9GEXD6S)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IMtest2/pchFile.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/IMtest2";
@@ -763,7 +763,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = William.IMtest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a89303ce-bc2f-4d97-9739-d65680b491f5";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -773,8 +773,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Feng (N5K9GEXD6S)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Feng (N5K9GEXD6S)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IMtest2/pchFile.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/IMtest2";
@@ -787,7 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = William.IMtest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a89303ce-bc2f-4d97-9739-d65680b491f5";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 arm7s";
 			};
