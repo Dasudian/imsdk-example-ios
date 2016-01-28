@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="scs-s6-49C">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="EPU-q1-nyi">
+            <objects>
+                <viewController id="scs-s6-49C" customClass="LoginController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6HT-4e-lrS"/>
+                        <viewControllerLayoutGuide type="bottom" id="7dQ-ul-VmC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wW3-pM-ySh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NlA-rN-Ap0">
+                                <rect key="frame" x="64" y="129" width="193" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rx4-1S-Lv3">
+                                <rect key="frame" x="64" y="199" width="193" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH3-Xe-cFD">
+                                <rect key="frame" x="116" y="303" width="88" height="31"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginaction:" destination="scs-s6-49C" eventType="touchUpInside" id="NYM-zJ-nh4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="passwordtext" destination="Rx4-1S-Lv3" id="Hdp-rf-HGQ"/>
+                        <outlet property="usernametext" destination="NlA-rN-Ap0" id="Jg7-xO-nkY"/>
+                        <segue destination="GVX-lS-hI3" kind="modal" identifier="login" id="sNa-p5-IJ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDP-Cw-a4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1485" y="24"/>
+        </scene>
+        <!--Group Navigation Controller-->
+        <scene sceneID="OhZ-Nf-k1Q">
+            <objects>
+                <navigationController id="GVX-lS-hI3" customClass="GroupNavigationController" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BKF-Jg-nYz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2BZ-VF-j3P" kind="relationship" relationship="rootViewController" id="vKf-I5-ybT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZM-j1-Lub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1030" y="24"/>
+        </scene>
+        <!--Group Setting Controller-->
+        <scene sceneID="jUB-Ts-jHx">
+            <objects>
+                <viewController id="2BZ-VF-j3P" customClass="GroupSettingController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mtu-Xo-TRM"/>
+                        <viewControllerLayoutGuide type="bottom" id="hfh-ME-MDb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KCd-Ya-LVh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YJ-Sh-YNE">
+                                <rect key="frame" x="80" y="143" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="创建组"/>
+                                <connections>
+                                    <action selector="creataction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="QoJ-qi-cJ4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9J-XE-ocS">
+                                <rect key="frame" x="80" y="197" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加入组"/>
+                                <connections>
+                                    <action selector="joinaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="3UC-Lv-ymc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-OS-lm2">
+                                <rect key="frame" x="80" y="248" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="离开组"/>
+                                <connections>
+                                    <action selector="leaveaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="B5A-uJ-diJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-sw-1sL">
+                                <rect key="frame" x="80" y="301" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="发送组消息"/>
+                                <connections>
+                                    <action selector="sendgroupacton:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="nHq-dv-TUB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPv-TO-Ghz">
+                                <rect key="frame" x="80" y="406" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="组详情列表"/>
+                                <connections>
+                                    <action selector="listaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="sJh-mg-lKS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eb-68-jOZ">
+                                <rect key="frame" x="79" y="457" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="发送广播消息"/>
+                                <connections>
+                                    <action selector="sendboardaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="k66-dl-XhE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjC-Zs-c4L">
+                                <rect key="frame" x="79" y="354" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="踢人"/>
+                                <connections>
+                                    <action selector="kickoutaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="yZ4-lz-MHN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGp-W3-pI0">
+                                <rect key="frame" x="80" y="92" width="161" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="发送单播消息"/>
+                                <connections>
+                                    <action selector="sendsignaction:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="qrF-GV-VyF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftG-C2-nfl">
+                                <rect key="frame" x="80" y="506" width="160" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="退出当前账号">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="quitacton:" destination="2BZ-VF-j3P" eventType="touchUpInside" id="RYX-d2-OSw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K6h-EV-YWf"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="zSm-MD-sjZ" kind="push" identifier="creatgroup" id="qfa-yq-T69"/>
+                        <segue destination="jJb-QN-s2y" kind="push" identifier="joingroup" id="Hgc-YH-wIr"/>
+                        <segue destination="naL-yG-w2l" kind="push" identifier="leavegroup" id="Lc0-1y-V8B"/>
+                        <segue destination="H7E-Yt-Dbs" kind="push" identifier="sendgroupmessage" id="Ah9-LP-cSC"/>
+                        <segue destination="KpH-GE-XVw" kind="push" identifier="kickoutgroup" id="S9W-TT-ORD"/>
+                        <segue destination="fc4-Y7-V55" kind="push" identifier="grouplist" id="gOG-eq-dYz"/>
+                        <segue destination="XxI-Zn-9ei" kind="push" identifier="sendboardmessage" id="ZbN-4V-Pbo"/>
+                        <segue destination="RDi-tp-rld" kind="push" identifier="sendsignmessage" id="sbf-Cz-pXk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pbf-Mm-Xyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-577" y="16"/>
+        </scene>
+        <!--Send Signl Message Controller-->
+        <scene sceneID="Vyk-E3-Gcr">
+            <objects>
+                <viewController id="RDi-tp-rld" customClass="SendSignlMessageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uZk-q1-yiJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zad-8t-eOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nhT-8W-uzY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入好友id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rn-X1-4HR">
+                                <rect key="frame" x="34" y="113" width="93" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBo-Vx-ofS">
+                                <rect key="frame" x="135" y="117" width="165" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8f-Wu-tZA">
+                                <rect key="frame" x="93" y="222" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="进入"/>
+                                <connections>
+                                    <action selector="signacton:" destination="RDi-tp-rld" eventType="touchUpInside" id="p6V-ZB-lMM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="odq-91-uwZ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="friendidtext" destination="bBo-Vx-ofS" id="KoD-QX-z7Y"/>
+                        <segue destination="2lD-Hi-s8T" kind="push" identifier="signmessage" id="Jmf-b5-OsT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iv4-nC-m4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="-3963"/>
+        </scene>
+        <!--Sinl Message Controller-->
+        <scene sceneID="s6A-sR-AKI">
+            <objects>
+                <viewController id="2lD-Hi-s8T" customClass="SinlMessageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Muw-dv-kVI"/>
+                        <viewControllerLayoutGuide type="bottom" id="K0v-Rb-A8Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g8V-Rs-kjf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gcC-8x-7su"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTj-pp-RpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="-3963"/>
+        </scene>
+        <!--Creat Group Controller-->
+        <scene sceneID="f2K-Wl-bw0">
+            <objects>
+                <viewController id="zSm-MD-sjZ" customClass="CreatGroupController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EH4-Lc-c1e"/>
+                        <viewControllerLayoutGuide type="bottom" id="fQW-EG-AAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gmw-wy-q1h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入组id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-iE-SnS">
+                                <rect key="frame" x="28" y="109" width="77" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-dg-ll8">
+                                <rect key="frame" x="113" y="108" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 组简介" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDN-ar-vfM">
+                                <rect key="frame" x="28" y="164" width="71" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-HZ-CjF">
+                                <rect key="frame" x="108" y="256" width="128" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="创建组"/>
+                                <connections>
+                                    <action selector="crreataction:" destination="zSm-MD-sjZ" eventType="touchUpInside" id="PW5-Xm-zkC"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Md-fN-jnF">
+                                <rect key="frame" x="113" y="163" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ga8-bb-PAb"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="groupid" destination="8ba-dg-ll8" id="nYS-he-R98"/>
+                        <outlet property="groupsummary" destination="7Md-fN-jnF" id="HeU-pT-q02"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSp-V7-Ste" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="-3253.5"/>
+        </scene>
+        <!--Jion Group Controller-->
+        <scene sceneID="zfy-K9-fdc">
+            <objects>
+                <viewController id="jJb-QN-s2y" customClass="JionGroupController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pLB-9J-rnh"/>
+                        <viewControllerLayoutGuide type="bottom" id="YcV-D5-LFK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BPH-R9-cta">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入组id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6l-z4-g7o">
+                                <rect key="frame" x="20" y="146" width="79" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-BC-90f">
+                                <rect key="frame" x="104" y="143" width="196" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sS8-86-oOf">
+                                <rect key="frame" x="86" y="232" width="149" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加入组"/>
+                                <connections>
+                                    <action selector="joinaction:" destination="jJb-QN-s2y" eventType="touchUpInside" id="f2w-Us-is8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6UK-KI-NiX"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="groupidtext" destination="9Ty-BC-90f" id="OkK-nz-AY9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfh-Ct-meF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="-2494.5"/>
+        </scene>
+        <!--Leave Group Controller-->
+        <scene sceneID="AYf-xe-dW9">
+            <objects>
+                <viewController id="naL-yG-w2l" customClass="LeaveGroupController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S9J-Zq-Sy6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zyk-es-ahV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oma-5U-N4X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cK1-3X-cho">
+                                <rect key="frame" x="99" y="472" width="123" height="28"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="离开组"/>
+                                <connections>
+                                    <action selector="leaveaction:" destination="naL-yG-w2l" eventType="touchUpInside" id="aGt-Aq-SEX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uXe-Xa-vPw"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kxe-Tx-XzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="-1725"/>
+        </scene>
+        <!--Send Message Controller-->
+        <scene sceneID="Up2-s9-U1p">
+            <objects>
+                <viewController id="H7E-Yt-Dbs" customClass="SendMessageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e9Y-Ff-NGc"/>
+                        <viewControllerLayoutGuide type="bottom" id="BHb-98-hl2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mW4-hR-PoU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zsH-5w-ZFp"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="KIP-ym-GXb" kind="push" identifier="groupmessage" id="oXi-J6-EcM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XeZ-cs-LAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="-961.5"/>
+        </scene>
+        <!--Group Message Controller-->
+        <scene sceneID="Ltb-bQ-lX5">
+            <objects>
+                <viewController id="KIP-ym-GXb" customClass="GroupMessageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZtR-gz-fs8"/>
+                        <viewControllerLayoutGuide type="bottom" id="hbz-iw-mla"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Au-wM-7eO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ojh-s9-hL8"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dG5-hK-qqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1563.5" y="-961.5"/>
+        </scene>
+        <!--Kick Out Controller-->
+        <scene sceneID="uZU-9Z-pUL">
+            <objects>
+                <viewController id="KpH-GE-XVw" customClass="KickOutController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FQd-C4-aZt"/>
+                        <viewControllerLayoutGuide type="bottom" id="jpA-Fc-MBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZdI-Xu-fkC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入组id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1J-1i-xLx">
+                                <rect key="frame" x="27" y="128" width="68" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入成员id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-5f-To7">
+                                <rect key="frame" x="27" y="198" width="88" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-w0-EVK">
+                                <rect key="frame" x="123" y="130" width="184" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRJ-uB-W8Y">
+                                <rect key="frame" x="123" y="198" width="184" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcO-HJ-LCA">
+                                <rect key="frame" x="94" y="269" width="132" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" 我踢"/>
+                                <connections>
+                                    <action selector="kickoutaction:" destination="KpH-GE-XVw" eventType="touchUpInside" id="R6B-Bl-XJT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DkW-a8-Nqw"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="groupid" destination="PcN-w0-EVK" id="sm3-8j-1zi"/>
+                        <outlet property="memberid" destination="fRJ-uB-W8Y" id="2Tr-I0-hdz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6YX-HG-9Is" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="-209.5"/>
+        </scene>
+        <!--Group List Controller-->
+        <scene sceneID="BZt-1o-foY">
+            <objects>
+                <viewController id="fc4-Y7-V55" customClass="GroupListController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nd3-W0-JMQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pft-3K-jcq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1m0-tE-weu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ld-4B-0jP">
+                                <rect key="frame" x="121" y="280" width="131" height="30"/>
+                                <state key="normal" title="群详情列表"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bHg-Zf-ATx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1o-by-oI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="540.5"/>
+        </scene>
+        <!--Send Board Controller-->
+        <scene sceneID="YEH-fo-p03">
+            <objects>
+                <viewController id="XxI-Zn-9ei" customClass="SendBoardController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sds-JV-8iz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ot1-jT-OnW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kwu-ja-GCP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTU-qI-Ovh">
+                                <rect key="frame" x="110" y="258" width="158" height="30"/>
+                                <state key="normal" title="发送广播消息"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wor-N7-ckZ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zb1-hU-9Hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.5" y="1336.5"/>
+        </scene>
+    </scenes>
+</document>
