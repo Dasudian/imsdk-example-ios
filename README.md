@@ -40,13 +40,15 @@ step7. 上传完毕后, 推送证书就被正确生成了, 之后我们下载下
 
 ## 上传推送证书
 
-step1. 打开Application –> Utilities –> Keychain Access应用, 我们会看到有刚刚我们制作好的推送证书
+step1. 打开Application –> Utilities –> Keychain Access应用, 我们会看到有刚刚我们制作好的推送证书。
 
-step3. 登录管理后台
+step2. 打开浏览器进入大数点官网。
 
-step4. 输入了正确的账号后, 选择对应的APP
+step3. 登录管理后台。
 
-step5. 填写的证书名称 
+step4. 输入了正确的账号后, 选择对应的APP。
+
+step5. 填写的证书名称。
 
 这个名称是个有意义的名字, 对推送直接相关, 稍后会在源码的修改里继续用到这个名字. 上传之前导出的P12文件, 密码则为此P12文件的密码, 证书类型请根据具体情况选择 
 
@@ -64,20 +66,10 @@ step6. 上传
 # SDK目录讲解
 
 从官网上下载下来的包中分为如下三部分：
-* iOS SDK 开发使用
 
-* iOS release note 更新说明
-
-* iOS UIDemo 工程源码
-
- IOS SDK中有三个子文件夹:include、lib、resources，请不要擅自修改这些文件夹的任何东西，下面依次介绍这三个子文件夹。
-  
-* lib 静态库,包含需要的静态库.a文件
-* resources SDK的bundle  包含旧版SDK的数据
-
-* include    包含SDK的头文件
-
-介绍下include，所有的接口都在这个文件夹中。
+ 第一部分：libdsd_im.a是ios的sdk静态库，将其直接导入到工程目录下即可使用。
+ 第二部分：DSDIMClient.h是ios接口文件，里面有大数点IM提供的所有方法，将其直接导入到工程目录下即可使用。
+ 第三部分：RELEASENOTE.md当前版本的SDK功能说明和更新说明。
 
 ## 配置工程
 1.导入SDK 
@@ -808,3 +800,5 @@ SDK依赖库有 libz.tbd.
 
 
 ```
+
+
