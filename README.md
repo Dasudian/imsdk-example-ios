@@ -67,14 +67,16 @@ step6. 上传
 
 从官网上下载下来的包中分为如下三部分：
 
- 第一部分：libdsd_im.a是ios的sdk静态库，将其直接导入到工程目录下即可使用。
- 第二部分：DSDIMClient.h是ios接口文件，里面有大数点IM提供的所有方法，将其直接导入到工程目录下即可使用。
- 第三部分：RELEASENOTE.md当前版本的SDK功能说明和更新说明。
+第一部分：libdsd_im.a是ios的sdk静态库，将其直接导入到工程目录下即可使用。
+
+第二部分：DSDIMClient.h是ios接口文件，里面有大数点IM提供的所有方法，将其直接导入到工程目录下即可使用。
+
+第三部分：RELEASENOTE.md当前版本的SDK功能说明和更新说明。
 
 ## 配置工程
 1.导入SDK 
  
-   将下载好的SDK文件夹拖入到项目中，并勾选上Destination 
+   将下载好的SDK文件拖入到项目中，并勾选上Destination 
    
    ![Alt ten](doc/8.jpg)
     
