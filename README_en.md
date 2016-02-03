@@ -3,8 +3,9 @@ Register at [Dasudian Developer's Portal](https://dev.dasudian.com/) and create 
 
 If not registered, please use AppID: AppKey: for testing.
 
-## Download SDK
-Download Dasudian IM SDK from [Dasudian Website](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip).
+## Download SDK and Demo
+[SDK](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
+[Demo](https://github.com/Dasudian/imsdk-example-ios/archive/v1.0.0.zip)
 
 ## Apply an Apple Certificate and Upload
 
@@ -97,16 +98,16 @@ The SDK consists of three parts：
  *
  *  @param ocversion the version of SDK, current version is @"0.1"
  *  @param ocappid   the AppID registered at [Dasudian Developer's Portal](https://dev.dasudian.com)
- *  @param ocspec    the AppKey generated together with AppID at [Dasudian Developer's Portal](https://dev.dasudian.com)
+ *  @param ockey    the AppKey generated together with AppID at [Dasudian Developer's Portal](https://dev.dasudian.com)
  *  @param ocuserid  userid uniquelly identifying your user
  *  @param ocuserinfo optional user information used for statistics, which must be in JSON format
  *  @param ocdevicetoken device token uniquelly identifying a device for PUSH
  *  @param ocserveraddress  the server address (if it's nil, then defaultly connect to Dasudian Public Cloud);
- *  @return 成功返回当前的一个实例
+ *  @return if success return an instance of DSDIMClient object
  */
 - (id)initWith:(NSString *)ocversion
          appID:(NSString *)ocappid
-       appSpec:(NSString *)ocspec
+        appKey:(NSString *)ockey
         userId:(NSString *)ocuserid
       userinfo:(NSString *)ocuserinfo
    devicetoken:(NSString *)ocdevicetoken
@@ -127,7 +128,7 @@ The SDK consists of three parts：
 
 @optional
 
-- (void)callbackConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
 
@@ -167,8 +168,9 @@ t - "3": video
 
 t - "4": html5
 
+* Notice: if sending message in aynchronous way, messageid is mandatory for every asynchronous method
 ## Aynchronous Unicast
-After importing DSDIMClient class, just call dsdAsyncsendmessage to send messages
+After importing DSDIMClient class, just call dsdAsyncSend to send messages
 
 Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for non-vip customers.
 
@@ -183,7 +185,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *  @param messageid  msgid indicated by App if require to acknowledge the message received
  *                    if message sent sucessfully this msgid will be return to callback function
  */
-- (void)dsdAsynsendmessage:(NSString *)formuserid
+- (void)dsdAsynSend:(NSString *)formuserid
                   userlist:(NSArray *)userlist
                     number:(NSInteger )number
                    message:(NSString *)message
@@ -204,7 +206,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *
  *  @return   success 0; fail -1
  */
-- (NSInteger)dsdSyncsendmessage:(NSString *)formuserid
+- (NSInteger)dsdSyncSend:(NSString *)formuserid
                        userlist:(NSArray *)userlist
                          number:(NSInteger)number
                         message:(NSString *)message;
@@ -217,7 +219,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  /**
  *  callback for receiving unicast message
  *
- *  @param reason  successfully receiving unicast message, reason=2
+ *  @param reason  if message sent successfully, reason=2
  *  @param data    the data received, in format:
 {
 	"msg":"message body in JSON"
@@ -244,9 +246,9 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *  @return success 0; fail -1
  */
 
-- (NSInteger )dsdSyncMulticastsendmessage:(NSString *)formuserid
-                                  groupid:(NSString *)groupid
-                                  message:(NSString *)message;
+- (NSInteger )dsdSyncMulticast:(NSString *)formuserid
+                       groupid:(NSString *)groupid
+                       message:(NSString *)message;
 
 ```
  
@@ -264,7 +266,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *                    if message sent sucessfully this msgid will be return to callback function
  */
 
-- (void)dsdAsynMulticastsendmessage:(NSString *)formuserid
+- (void)dsdAsynMulticast:(NSString *)formuserid
                             groupid:(NSString *)groupid
                             message:(NSString *)message
                           messageid:(NSString *)messageid;
@@ -279,7 +281,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
 /**
  *  callback for receiving group message
  *
- *  @param reason receive successfully, reason=3
+ *  @param reason if message sent successfully, reason=3
  *  @param data   the data received in format:
 {
 	"msg":"Message body as JSON",
@@ -290,7 +292,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *  @param len    length of data received
  */
 @optional
-- (void)didReciveGroupMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
     
@@ -306,7 +308,7 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *  @return  success 0; fail -1
  */
 
-- (NSInteger)dsdSyncBroadcastsendmessage:(NSString *)formuserid message:(NSString *)message;
+- (NSInteger)dsdSyncBroadcast:(NSString *)formuserid message:(NSString *)message;
 
 ```
 ## Aynchronous Broadcast
@@ -320,12 +322,12 @@ Notice: If using Dasudian Public Cloud, the maximum message is 1024 bytes for no
  *                    if message sent sucessfully this msgid will be return to callback function
  */
 
-- (void)dsdAsynBroadcastsendmessage:(NSString *)formuserid
-                            message:(NSString *)message
-                          messageid:(NSString *)messageid;
+- (void)dsdAsynBroadcast:(NSString *)formuserid
+                 message:(NSString *)message
+               messageid:(NSString *)messageid;
 
 ```
-It's recommended to choose thie method to send broadcast message
+It's recommended to choose this method to send broadcast message
 
 ## Callback for Receiving Broadcast Message
 
@@ -343,7 +345,7 @@ It's recommended to choose thie method to send broadcast message
  *  @param len    length of data received
  */
 @optional
-- (void)didreciveBroadMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
 ## Create a Group
@@ -358,7 +360,7 @@ It's recommended to choose thie method to send broadcast message
  *  @return   if success return a unique groupid; if fail return null
  */
 
-- (NSString *)dsdCreatGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
+- (NSString *)dsdCreateGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
 
 ```
 
@@ -422,7 +424,7 @@ It's recommended to choose thie method to send broadcast message
  *  @param len     lenght of the returned data
  */
 @optional
-- (void)didKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
 ## Callback for sending Asynchronous Messages
@@ -435,7 +437,7 @@ It's recommended to choose thie method to send broadcast message
  *  @param len    length of the returned data
  */
 @optional
-- (void)didSendMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackAsyncSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
 
@@ -449,6 +451,6 @@ This is helper method provided by sdk for converting messages to dictionary
  *
  *  @return parsed dictionary
  */
-- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+- (NSDictionary *)dsdJsonToDict:(NSString *)jsonString;
 
 ```
