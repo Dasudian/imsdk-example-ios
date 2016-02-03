@@ -158,6 +158,7 @@ SDK依赖库有 libz.tbd.
 - (void)dsdDisConnect;
  
  ```
+## 消息格式定义
  必须要指出的是不论是发消息还是接收消息，其中msg格式为：{“t”:"*" , "b":"string"}这个字段中的t指的是消息类型（必填项），b指的是消息体我们发出的消息内容。
 
    t为0:发出的消息类型是文本类型。
@@ -297,7 +298,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)dsdCallbackReciveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 
@@ -355,7 +356,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)dsdCallbackReciveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 ```
@@ -371,7 +372,7 @@ SDK依赖库有 libz.tbd.
  *  @return   成功返回组id，失败返回nil。
  */
 
-- (NSString *)dsdCreatGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
+- (NSString *)dsdCreateGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
 
 
 ```
@@ -453,7 +454,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度。
  */
 @optional
-- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackAsyncSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 
@@ -468,7 +469,7 @@ SDK依赖库有 libz.tbd.
  *
  *  @return 返回解析后的字典
  */
-- (NSDictionary *)dsdDictionaryWithJsonString:(NSString *)jsonString;
+- (NSDictionary *)dsdJsonToDict:(NSString *)jsonString;
 
 ```
 
