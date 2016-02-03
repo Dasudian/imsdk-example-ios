@@ -290,7 +290,7 @@
 
 
 /**
- *  创建组播组,该方法会阻塞调用者.
+ *  创建组,该方法会阻塞调用者.
  *
  *  @param creatuserid  创建者的userid
  *  @param groupName    组名，字符串类型
@@ -306,7 +306,7 @@
 
 
 /**
- *  加入组播组,该方法会阻塞调用者
+ *  加入组,该方法会阻塞调用者
  *
  *  @param joinuserid  加入者的userid
  *  @param groupid     加入组的组名，必须是字符串类型
@@ -322,7 +322,7 @@
 
 
 /**
- *  离开组播组,该函数会阻塞调用者.
+ *  离开组,该函数会阻塞主线程.
  *
  *  @param leaveuserid  离开者的userid
  *  @param groupid      组的id
@@ -339,7 +339,7 @@
 
 
 /**
- *  将某人踢出组播组
+ *  将某人踢出组
  *
  *  @param creatuserid  组播组拥有者
  *  @param groupid      组的groupid
