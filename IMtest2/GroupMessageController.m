@@ -130,7 +130,7 @@
   NSMutableString *string = [[NSMutableString alloc]initWithData:jsonData encoding: NSUTF8StringEncoding];
   
   //异步发送消息
-    [[DSDIMClient shareInstance] dsdAsynMulticast:_loginerid
+    [[DSDIMClient shareInstance] dsdAsyncMulticast:_loginerid
                                                      groupid:_groupid
                                                      message:string
                                                    messageid:[NSString ret16bitString]];

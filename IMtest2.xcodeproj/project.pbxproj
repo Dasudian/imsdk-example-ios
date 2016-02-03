@@ -48,7 +48,7 @@
 		04335A131C2D66E400E4FB02 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 04335A121C2D66E400E4FB02 /* other.png */; };
 		04335A151C2D66EF00E4FB02 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04335A141C2D66EF00E4FB02 /* messages.plist */; };
 		04335A1D1C2E34D800E4FB02 /* GroupMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04335A1C1C2E34D800E4FB02 /* GroupMessageController.m */; };
-		0471F7D01C61EAB700C44C29 /* libdsd_im.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471F7CF1C61EAB700C44C29 /* libdsd_im.a */; };
+		04FE73D91C621E6700779C63 /* libdsd_im.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FE73D81C621E6700779C63 /* libdsd_im.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +141,8 @@
 		04335A141C2D66EF00E4FB02 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		04335A1B1C2E34D800E4FB02 /* GroupMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMessageController.h; sourceTree = "<group>"; };
 		04335A1C1C2E34D800E4FB02 /* GroupMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMessageController.m; sourceTree = "<group>"; };
-		0471F7CF1C61EAB700C44C29 /* libdsd_im.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsd_im.a; sourceTree = "<group>"; };
-		0471F7D11C61EADB00C44C29 /* DSDIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDIMClient.h; sourceTree = "<group>"; };
+		04FE73D71C621E5400779C63 /* DSDIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDIMClient.h; sourceTree = "<group>"; };
+		04FE73D81C621E6700779C63 /* libdsd_im.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsd_im.a; sourceTree = "<group>"; };
 		DD86F2E31C44FD06008054AC /* pchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043359EC1C2D16CE00E4FB02 /* libz.tbd in Frameworks */,
-				0471F7D01C61EAB700C44C29 /* libdsd_im.a in Frameworks */,
+				04FE73D91C621E6700779C63 /* libdsd_im.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,8 +397,8 @@
 				043359BE1C2D114E00E4FB02 /* TheManager.m */,
 				043359BA1C2D113100E4FB02 /* GroupManager.h */,
 				043359BB1C2D113900E4FB02 /* GroupManager.m */,
-				0471F7D11C61EADB00C44C29 /* DSDIMClient.h */,
-				0471F7CF1C61EAB700C44C29 /* libdsd_im.a */,
+				04FE73D71C621E5400779C63 /* DSDIMClient.h */,
+				04FE73D81C621E6700779C63 /* libdsd_im.a */,
 			);
 			name = DSDClient;
 			sourceTree = "<group>";

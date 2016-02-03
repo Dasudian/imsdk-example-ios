@@ -128,7 +128,7 @@ NSData *jsonData = [NSJSONSerialization dataWithJSONObject:messagedic options:NS
   NSMutableString *string = [[NSMutableString alloc]initWithData:jsonData encoding: NSUTF8StringEncoding];
   
 //异步发送消息
-  [[DSDIMClient shareInstance]dsdAsynBroadcast:_loginerid
+  [[DSDIMClient shareInstance]dsdAsyncBroadcast:_loginerid
                                                   message:string
                                                 messageid:[NSString ret16bitString]];
   NSLog(@"发送的广播消息是:%@",string);

@@ -18,7 +18,7 @@
 //  拿到文本框信息
   NSString *groupname = _groupid.text;
   
-  NSString *name = [[DSDIMClient shareInstance] dsdCreatGroup:_loginerid groupName:groupname];
+  NSString *name = [[DSDIMClient shareInstance] dsdCreateGroup:_loginerid groupName:groupname];
   
   if(name == NULL){
     

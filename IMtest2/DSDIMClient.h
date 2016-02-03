@@ -34,7 +34,7 @@
  *  @param len    返回的data的数据长度。
  */
 @optional
-- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackAsyncSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 
@@ -210,7 +210,7 @@
  *  @param message    消息内容，必须是json字符串
  *  @param messageid  消息序列号，用户指定得msgid,如果发送成功,该msgid会在回调方法里返回给用户(字符串类型，最好不要重复)
  */
-- (void)dsdAsynSend:(NSString *)fromuserid
+- (void)dsdAsyncSend:(NSString *)fromuserid
            userlist:(NSArray *)userlist
              number:(NSInteger )number
             message:(NSString *)message
@@ -246,7 +246,7 @@
  
  */
 
-- (void)dsdAsynMulticast:(NSString *)fromuserid
+- (void)dsdAsyncMulticast:(NSString *)fromuserid
                             groupid:(NSString *)groupid
                             message:(NSString *)message
                           messageid:(NSString *)messageid;
@@ -281,7 +281,7 @@
  
  */
 
-- (void)dsdAsynBroadcast:(NSString *)fromuserid
+- (void)dsdAsyncBroadcast:(NSString *)fromuserid
                             message:(NSString *)message
                           messageid:(NSString *)messageid;
 

@@ -43,7 +43,7 @@ static TheManager* _instance = nil;
 #pragma mark -- 收到回调的函数
 
 //发送所有的异步消息的回调
-- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackAsyncSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
 //  NSLog(@"回调返回的数据是:%@",data);
   
@@ -66,7 +66,7 @@ static TheManager* _instance = nil;
 
 
 
-- (void)dsdCallbackRecive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackReceive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
     
   
   if(_signlmessagary==nil){
@@ -76,7 +76,7 @@ static TheManager* _instance = nil;
     
   }
   if(data!=nil){
-  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdJsontoDict:data];
   
   [_signlmessagary addObject:dic];
   
@@ -91,7 +91,7 @@ static TheManager* _instance = nil;
 }
 
 
-- (void)dsdCallbackReciveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackReceiveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   if(_groupmessageary==nil){
   
     _groupmessageary = [[NSMutableArray alloc]init];
@@ -101,7 +101,7 @@ static TheManager* _instance = nil;
     
   if(data!=nil){
   
-  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdJsontoDict:data];
     
   [_groupmessageary addObject:dic];
     
@@ -116,7 +116,7 @@ static TheManager* _instance = nil;
 }
 
 
-- (void)dsdCallbackReciveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackReceiveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
   if(_boardmessageary.count == 0){
     
@@ -124,7 +124,7 @@ static TheManager* _instance = nil;
   }
   NSLog(@"你收到了一条广播播消息");
   
-  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdJsontoDict:data];
   
   if(dic!=nil){
   
@@ -162,7 +162,7 @@ static TheManager* _instance = nil;
 
 - (void)dsdCallbackDisConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
-  NSDictionary *dic= [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
+  NSDictionary *dic= [[DSDIMClient shareInstance]dsdJsontoDict:data];
   
   [_disconnectary addObject:dic];
 
