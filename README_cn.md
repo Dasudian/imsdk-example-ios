@@ -230,7 +230,7 @@ SDK依赖库有 libz.tbd.
  *  @param len     返回的data的数据长度
  */
 @optional
-- (void)dsdCallbackRecive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
  ```
@@ -297,7 +297,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)dsdCallbackReciveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 
@@ -355,7 +355,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)dsdCallbackReciveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReceiveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 ```
@@ -371,7 +371,7 @@ SDK依赖库有 libz.tbd.
  *  @return   成功返回组id，失败返回nil。
  */
 
-- (NSString *)dsdCreatGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
+- (NSString *)dsdCreateGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
 
 
 ```
@@ -453,7 +453,7 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度。
  */
 @optional
-- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackAsynSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 
 
@@ -468,7 +468,7 @@ SDK依赖库有 libz.tbd.
  *
  *  @return 返回解析后的字典
  */
-- (NSDictionary *)dsdDictionaryWithJsonString:(NSString *)jsonString;
+- (NSDictionary *)dsdJsontoDict:(NSString *)jsonString;
 
 ```
 
