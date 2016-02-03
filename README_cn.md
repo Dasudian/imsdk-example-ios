@@ -1,8 +1,9 @@
 ## 集成前准备
 到[大数点开发者平台](https://dev.dasudian.com/)注册成为大数点合作伙伴并创建应用
 
-## 下载SDK
-到[大数点官网](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)下载IM SDK.
+## 下载SDK和Demo
+[SDK](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
+[Demo](https://github.com/Dasudian/imsdk-example-ios/archive/v1.0.0.zip)
 
 ## 制作并上传推送证书
 
@@ -92,29 +93,33 @@ SDK依赖库有 libz.tbd.
  SDK中的回调目前都是用代理实现的方法，方法简单易懂，方便用户实现各种回调的操作。
   
  SDK中基本客户端类提供了基本的单播，组播，广播等一系列方法，同时客户端类也定义了一系列的协议用于回调，比如收到单播消息的回调，收到广播消息的回调。客户端类功能简单易懂且功能全面。
-    
+  
+
+
+
 # 初始化SDK 
 
 ```
-  /**
+ /**
  *  初始化sdk,退出时需要调用dsdDisConnect()来销毁分配得内存.
  *
- *  @param ocversion app的版本号
+ *  @param ocversion sdk的版本号
  *  @param ocappid   注册的appid
- *  @param ocspec    app在大数点上注册生成的appkey。
+ *  @param ocappkey  注册app获取的appkey
  *  @param ocuserid  userid
- *  @param ocuserinfo 用户需要的统计信息格式json字符串。
- *  @param ocdebicetoken 设备的device token
+ *  @param ocuserinfo 用户需要的统计信息
+ *  @param ocdevicetoken 设备的device token
  *  @param ocserveraddress  用户填写的服务器地址(如果写nil，默认为大数点公有云服务器地址);
  *  @return 成功返回当前的一个实例
  */
 - (id)initWith:(NSString *)ocversion
          appID:(NSString *)ocappid
-       appSpec:(NSString *)ocspec
+        appKey:(NSString *)ockey
         userId:(NSString *)ocuserid
       userinfo:(NSString *)ocuserinfo
    devicetoken:(NSString *)ocdevicetoken
  serverAddress:(NSString *)ocserveraddress;
+
 
 ```
 
@@ -122,18 +127,20 @@ SDK依赖库有 libz.tbd.
   
  ```
 
-   /**
+  /**
  *
  *  重新连接/连接成功的回调
  *  @param reason  连接成功，reason=5
- *  @param data    服务器返回的数据，成功返回为null
+ *  @param data    服务器返回的数据，成功返回为nil
  *  @param len      返回的data的数据长度
  */
 
 
 @optional
 
-- (void)callbackConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
+
 
  ```
 
@@ -151,13 +158,15 @@ SDK依赖库有 libz.tbd.
 - (void)dsdDisConnect;
  
  ```
- 必须要指出的是不论是发消息还是接受消息，其中msg格式为：{“t”:"*" , "b":"string"}这个字段中的t指的是消息类型（必填项），b指的是消息体我们发出的消息内容。
+ 必须要指出的是不论是发消息还是接收消息，其中msg格式为：{“t”:"*" , "b":"string"}这个字段中的t指的是消息类型（必填项），b指的是消息体我们发出的消息内容。
 
    t为0:发出的消息类型是文本类型。
 
    t为1:发出的消息类型是图片类型。
 
    t为2:发出的消息类型是语音类型。
+
+   同时需要注意的是在异步发送消息的时候，messageid是必须要带的。
 
 ## 异步单播发送消息：
 在代码中导入客户端基本类 调用异步发送单播消息方法就OK了。
@@ -166,19 +175,19 @@ SDK依赖库有 libz.tbd.
 
 ```
 /**
- *  异步发送单播消息,该函数不会阻塞主线程.
+ *  异步发送单播消息,该方法不会阻塞主线程.
  *
  *  @param formuserid 用户id
- *  @param userlist   消息接受者列表
- *  @param number     消息接受者数量
- *  @param message    消息内容，必须是字符串
+ *  @param userlist   消息接收者列表
+ *  @param number     消息接收者数量
+ *  @param message    消息内容，必须是json字符串
  *  @param messageid  消息序列号，用户指定得msgid,如果发送成功,该msgid会在回调方法里返回给用户(字符串类型，最好不要重复)
  */
-- (void)dsdAsynsendmessage:(NSString *)formuserid
-                  userlist:(NSArray *)userlist
-                    number:(NSInteger )number
-                   message:(NSString *)message
-                 messageid:(NSString *)messageid;
+- (void)dsdAsynSend:(NSString *)fromuserid
+           userlist:(NSArray *)userlist
+             number:(NSInteger )number
+            message:(NSString *)message
+          messageid:(NSString *)messageid;
 
 ```
 
@@ -190,16 +199,17 @@ SDK依赖库有 libz.tbd.
  *  同步发送单播消息.该方法会阻塞主线程.
  *
  *  @param formuserid   用户的id
- *  @param userlist     消息接受者列表
- *  @param number       消息接受者数量
+ *  @param userlist     消息接收者列表
+ *  @param number       消息接收者数量
  *  @param message      消息内容，必须是字符串
  *
  *  @return   成功返回0，失败返回-1
  */
-- (NSInteger)dsdSyncsendmessage:(NSString *)formuserid
-                       userlist:(NSArray *)userlist
-                         number:(NSInteger)number
-                        message:(NSString *)message;
+- (NSInteger)dsdSyncSend:(NSString *)fromuserid
+                userlist:(NSArray *)userlist
+                  number:(NSInteger)number
+                 message:(NSString *)message;
+
 
  ```
 
@@ -220,7 +230,8 @@ SDK依赖库有 libz.tbd.
  *  @param len     返回的data的数据长度
  */
 @optional
-- (void)didReciveMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackRecive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
 
  ```
 
@@ -231,14 +242,15 @@ SDK依赖库有 libz.tbd.
  *
  *  @param formuserid  用户id
  *  @param groupid     group id
- *  @param message     消息内容，必须是字符串类型
+ *  @param message     消息内容，必须是json字符串类型
  *
  *  @return 成功返回0，失败返回-1。
  */
 
-- (NSInteger )dsdSyncMulticastsendmessage:(NSString *)formuserid
-                                  groupid:(NSString *)groupid
-                                  message:(NSString *)message;
+- (NSInteger )dsdSyncMulticast:(NSString *)fromuserid
+                       groupid:(NSString *)groupid
+                       message:(NSString *)message;
+
 
 ```
  
@@ -251,15 +263,17 @@ SDK依赖库有 libz.tbd.
  *
  *  @param formuserid 用户id
  *  @param groupid    groupid
- *  @param message    消息内容,必须是字符串格式
+ *  @param message    消息内容,必须是json字符串格式
  *  @param messageid  消息序列号，用户指定得msgid,如果发送成功,该msgid会在回调方法里返回给用户(字符串类型，最好不要重复)
  
  */
 
-- (void)dsdAsynMulticastsendmessage:(NSString *)formuserid
+- (void)dsdAsynMulticast:(NSString *)fromuserid
                             groupid:(NSString *)groupid
                             message:(NSString *)message
                           messageid:(NSString *)messageid;
+
+
 
 ```
 
@@ -283,7 +297,9 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)didReciveGroupMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReciveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
+
 
 ```
     
@@ -291,15 +307,16 @@ SDK依赖库有 libz.tbd.
 
 ```
 /**
- *  同步得发送广播消息,该函数会阻塞主线程.
+ *  同步得发送广播消息,该方法会阻塞主线程.
  *
  *  @param formuserid  发送者id
- *  @param message     消息内容，必须是字符串格式
+ *  @param message     消息内容，必须是json字符串格式
  *
  *  @return  成功返回0，失败返回-1；
  */
 
-- (NSInteger)dsdSyncBroadcastsendmessage:(NSString *)formuserid message:(NSString *)message;
+- (NSInteger)dsdSyncBroadcast:(NSString *)fromuserid message:(NSString *)message;
+
 
 ```
 ## 异步发送广播消息
@@ -308,14 +325,15 @@ SDK依赖库有 libz.tbd.
  *  异步发送广播消息,该方法不会阻塞主线程
  *
  *  @param formuserid  发送者id
- *  @param message     消息内容，必须是字符串格式
+ *  @param message     消息内容，必须是json字符串格式
  *  @param messageid   消息序列号，用户指定得msgid,如果发送成功,该msgid会在回调方法里返回给用户(字符串类型，最好不要重复)
  
  */
 
-- (void)dsdAsynBroadcastsendmessage:(NSString *)formuserid
+- (void)dsdAsynBroadcast:(NSString *)fromuserid
                             message:(NSString *)message
                           messageid:(NSString *)messageid;
+
 
         一般选择此方法发送广播消息。
 ```
@@ -337,7 +355,8 @@ SDK依赖库有 libz.tbd.
  *  @param len    返回的data的数据长度
  */
 @optional
-- (void)didreciveBroadMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackReciveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
 
 ```
 ## 创建组
@@ -349,10 +368,11 @@ SDK依赖库有 libz.tbd.
  *  @param creatuserid  创建者的userid
  *  @param groupName    组名，字符串类型
  *
- *  @return   成功返回组名，失败返回null。
+ *  @return   成功返回组id，失败返回nil。
  */
 
 - (NSString *)dsdCreatGroup:(NSString *)creatuserid groupName:(NSString *)groupName;
+
 
 ```
 
@@ -360,15 +380,17 @@ SDK依赖库有 libz.tbd.
 
 ```
 /**
- *  加入组,该方法会阻塞主线程。
+ *  加入组,该方法会阻塞主线程
  *
  *  @param joinuserid  加入者的userid
- *  @param groupid     加入组的组名，必须是字符串类型
+ *  @param groupid     加入组的组id，必须是字符串类型
  *
  *  @return 成功返回0，失败返回-1.
  */
 
 - (NSInteger) dsdJoinGroup:(NSString *)joinuserid groupid:(NSString *)groupid;
+
+
 
 ```
   
@@ -376,7 +398,7 @@ SDK依赖库有 libz.tbd.
 
 ```
 /**
- *  离开组,该函数会阻塞主线程.
+ *  离开组,该方法会阻塞主线程.
  *
  *  @param leaveuserid  离开者的userid
  *  @param groupid      组的id
@@ -393,8 +415,8 @@ SDK依赖库有 libz.tbd.
 /**
  *  将某人踢出组
  *
- *  @param creatuserid  组播组拥有者
- *  @param groupid      组的groupid
+ *  @param creatuserid  组的创建者id
+ *  @param groupid      组的id
  *  @param groupmember  被踢出的人的id
  *
  *  @return 成功返回0，失败返回-1.
@@ -402,6 +424,7 @@ SDK依赖库有 libz.tbd.
 - (NSInteger)dsdKickOutGroup:(NSString *)creatuserid
                      groupid:(NSString *)groupid
                  groupmember:(NSString *)groupmember;
+
 
 ```
 
@@ -413,11 +436,11 @@ SDK依赖库有 libz.tbd.
  *  踢出组的回调
  *
  *  @param reason  踢出成功，reason=6
- *  @param data    成功，data为null
+ *  @param data    成功，data为nil
  *  @param len     返回的data的数据长度
  */
 @optional
-- (void)didKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
 
 ```
 ## 发送异步消息的回调
@@ -426,23 +449,31 @@ SDK依赖库有 libz.tbd.
  *  发送所有的异步消息的回调
  *
  *  @param reason 发送异步消息成功，reason=1；
- *  @param data   发送成功 返回data为messageid。
+ *  @param data   发送成功 返回data为messageid
  *  @param len    返回的data的数据长度。
  */
 @optional
-- (void)didSendMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len;
+
+
 
 ```
 
 ### 此方法是sdk层封装的一个转换方法，用户可以用自己的方法去实现解析接收到的消息。
 ```
 /**
- *  增加的一种数据转化方法，可以自己去解析回调函数中传回来的data值。
+ *  增加的一种数据转化方法，可以自己去解析回调方法中传回来的data值。
  *
  *  @param jsonString 传入的字符串
  *
  *  @return 返回解析后的字典
  */
-- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+- (NSDictionary *)dsdDictionaryWithJsonString:(NSString *)jsonString;
 
 ```
+
+
+
+
+
+
