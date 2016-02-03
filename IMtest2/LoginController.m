@@ -64,12 +64,12 @@
     }
     
    DSDIMClient *dsdclient = [[DSDIMClient shareInstance]initWith:version
-                                                            appID:appid
-                                                          appSpec:appspec
-                                                           userId:userid
-                                                         userinfo:userinfo
-                                                      devicetoken:devicetoken
-                                                    serverAddress:serveraddress];
+                                                           appID:appid
+                                                          appKey:appspec
+                                                          userId:userid
+                                                        userinfo:userinfo
+                                                     devicetoken:devicetoken
+                                                   serverAddress:serveraddress];
   
   
    if(dsdclient!=nil){

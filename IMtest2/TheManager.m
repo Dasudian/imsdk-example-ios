@@ -43,7 +43,7 @@ static TheManager* _instance = nil;
 #pragma mark -- 收到回调的函数
 
 //发送所有的异步消息的回调
-- (void)didSendMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackSend:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
 //  NSLog(@"回调返回的数据是:%@",data);
   
@@ -66,7 +66,7 @@ static TheManager* _instance = nil;
 
 
 
-- (void)didReciveMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackRecive:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
     
   
   if(_signlmessagary==nil){
@@ -76,7 +76,7 @@ static TheManager* _instance = nil;
     
   }
   if(data!=nil){
-  NSDictionary *dic = [[DSDIMClient shareInstance]dictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
   
   [_signlmessagary addObject:dic];
   
@@ -91,7 +91,7 @@ static TheManager* _instance = nil;
 }
 
 
-- (void)didReciveGroupMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackReciveGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   if(_groupmessageary==nil){
   
     _groupmessageary = [[NSMutableArray alloc]init];
@@ -101,7 +101,7 @@ static TheManager* _instance = nil;
     
   if(data!=nil){
   
-  NSDictionary *dic = [[DSDIMClient shareInstance]dictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
     
   [_groupmessageary addObject:dic];
     
@@ -116,7 +116,7 @@ static TheManager* _instance = nil;
 }
 
 
-- (void)didreciveBroadMessage:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackReciveBroad:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
   if(_boardmessageary.count == 0){
     
@@ -124,7 +124,7 @@ static TheManager* _instance = nil;
   }
   NSLog(@"你收到了一条广播播消息");
   
-  NSDictionary *dic = [[DSDIMClient shareInstance]dictionaryWithJsonString:data];
+  NSDictionary *dic = [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
   
   if(dic!=nil){
   
@@ -141,7 +141,7 @@ static TheManager* _instance = nil;
 
 
 
-- (void)didKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackKickOutGroup:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
   if(_kickoutary.count ==0){
    
@@ -160,9 +160,9 @@ static TheManager* _instance = nil;
 
 
 
-- (void)didDisConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackDisConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
   
-  NSDictionary *dic= [[DSDIMClient shareInstance]dictionaryWithJsonString:data];
+  NSDictionary *dic= [[DSDIMClient shareInstance]dsdDictionaryWithJsonString:data];
   
   [_disconnectary addObject:dic];
 
@@ -173,9 +173,7 @@ static TheManager* _instance = nil;
 }
 
 //登录的回调
-- (void)callbackConnect:(NSInteger)reason
-                   data:(NSString *)data
-                  lenth:(NSInteger)len{
+- (void)dsdCallbackConnect:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
 // 增加一个通知，
 
   if(reason==5){
@@ -192,7 +190,7 @@ static TheManager* _instance = nil;
   
 }
 
-- (void)didloginOnanotherclient:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
+- (void)dsdCallbackLoginOnAnotherclient:(NSInteger)reason data:(NSString *)data lenth:(NSInteger)len{
 
     NSLog(@"你的账号已经在其它设备上登录了");
     
@@ -243,11 +241,11 @@ static TheManager* _instance = nil;
   
         
         [[DSDIMClient shareInstance]initWith:version
-                                      appID:appid
-                                    appSpec:appspec
-                                     userId:userid
-                                   userinfo:userinfo
-                                devicetoken:devicetoken
+                                       appID:appid
+                                      appKey:appspec
+                                      userId:appid
+                                    userinfo:userinfo
+                                 devicetoken:devicetoken
                                serverAddress:serveraddress];
         
         
