@@ -1,5 +1,13 @@
 ## 集成前准备
-到[大数点开发者平台](https://dev.dasudian.com/)注册成为大数点合作伙伴并创建应用
+到[大数点开发者平台](https://dev.dasudian.com/)注册成为大数点合作伙伴并创建应用，每创建一个应用大数点平台会为其生成一个AppID和AppKey，AppID在大数点平台唯一标识一个应用，而AppKey可以被更新。AppID和AppKey将在您的代码里使用，保证您的应用与大数点平台间的安全传输。
+
+若您还没有注册，请使用如下Demo App作测试：
+
+Demo App:
+```
+AppID: 101_94lhb27aW3ahNRymR6_A
+AppKey: 2571cc86c9de6190
+```
 
 ## 下载SDK和Demo
 [SDK](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
