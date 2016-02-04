@@ -1,7 +1,15 @@
 ## Preparation for Integration
-Register at [Dasudian Developer's Portal](https://dev.dasudian.com/) and create an App
+Register at [Dasudian Developer's Portal](https://dev.dasudian.com/) and create an App.
 
-If not registered, please use AppID: AppKey: for testing.
+After creating a App, AppID and AppKey will be generated for it, which will be used by the SDK to communicate with Dasduian Cloud while initializing the SDK.
+
+If not registerd, please use following App for testing:
+
+Demo App:
+```
+AppID: 101_94lhb27aW3ahNRymR6_A
+AppKey: 2571cc86c9de6190
+```
 
 ## Download SDK and Demo
 [SDK](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
