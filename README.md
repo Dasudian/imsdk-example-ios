@@ -12,7 +12,7 @@ AppKey: 2571cc86c9de6190
 ```
 
 ## Download SDK and Demo
-[SDK](http://www.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
+[SDK](http://main.dasudian.com/downloads/sdk/latest/im-sdk-ios.zip)  
 [Demo](https://github.com/Dasudian/imsdk-example-ios/archive/v1.0.0.zip)
 
 ## Apply an Apple Certificate and Upload
