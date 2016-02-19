@@ -7,8 +7,8 @@ If not registerd, please use following App for testing:
 
 Demo App:
 ```
-AppID: 101_94lhb27aW3ahNRymR6_A
-AppKey: 2571cc86c9de6190
+AppID: 3_95F8TwKfyN7Lj35j8q_A
+AppKey: ec55784a5db3268a
 ```
 
 ## Download SDK and Demo
