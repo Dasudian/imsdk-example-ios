@@ -32,9 +32,9 @@
     
     NSString *version = @"1.0";
     
-    NSString *appid = @"101_94lhb27aW3ahNRymR6_A";
+    NSString *appid = @"3_95F8TwKfyN7Lj35j8q_A";
     
-    NSString *appspec = @"2571cc86c9de6190";
+    NSString *appspec = @"ec55784a5db3268a";
     
     NSString *userstring = @"fdsfsfsf";
     
